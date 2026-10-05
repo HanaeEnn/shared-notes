@@ -1,3 +1,3 @@
 # Meeting Notes
 
-- Agenda: TBD
+- Agenda: plan Ansible playbooks (Bob)
