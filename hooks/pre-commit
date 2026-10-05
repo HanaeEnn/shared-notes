@@ -1,0 +1,12 @@
+#!/bin/sh
+# Reject commits where a staged note in notes/ has no non-empty title.
+# A valid title is a first line of the form "# Some text".
+status=0
+for file in $(git diff --cached --name-only --diff-filter=ACM -- 'notes/*.md'); do
+    first_line=$(git show ":$file" | head -n 1)
+    if ! printf '%s\n' "$first_line" | grep -Eq '^#[[:space:]]+[^[:space:]]'; then
+        echo "pre-commit: $file has a missing or empty title (first line must be '# Title')."
+        status=1
+    fi
+done
+exit $status
