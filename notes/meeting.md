@@ -1,3 +1,3 @@
 # Meeting Notes
 
-- Agenda: TBD
+- Agenda: review Zabbix dashboards (Alice)
